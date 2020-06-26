@@ -3,3 +3,14 @@
 @tailwind components;
 
 @tailwind utilities;
+
+::placeholder {
+ color: inherit !important;
+ opacity: 0.2;
+}
+
+button > *,
+svg > *,
+input {
+ -webkit-user-drag: none;
+}

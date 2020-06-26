@@ -14343,6 +14343,17 @@ video {
   transition-delay: 1000ms;
 }
 
+::placeholder {
+  color: inherit !important;
+  opacity: 0.2;
+}
+
+button,
+svg,
+input {
+  -webkit-user-drag: none;
+}
+
 @media (min-width: 640px) {
   .sm\:space-y-0 > :not(template) ~ :not(template) {
     --space-y-reverse: 0;
