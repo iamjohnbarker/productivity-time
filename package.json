@@ -1,34 +1,60 @@
 {
-  "name": "productivity-time",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+ "name": "productivity-time",
+ "description": "Keeping time productive.",
+ "version": "0.1.0",
+ "private": true,
+ "author": {
+  "name": "John Barker"
+ },
+ "homepage": "./",
+ "main": "src/start.js",
+ "dependencies": {
+  "@testing-library/jest-dom": "^4.2.4",
+  "@testing-library/react": "^9.3.2",
+  "@testing-library/user-event": "^7.1.2",
+  "react": "^16.13.1",
+  "react-dom": "^16.13.1",
+  "react-scripts": "3.4.1"
+ },
+ "scripts": {
+  "start": "npm run watch:css && nf start -p 4321",
+  "build": "react-scripts build",
+  "test": "react-scripts test --env=jsdom",
+  "electron": "electron .",
+  "electron-start": "node src/start-react",
+  "react-start": "BROWSER=none react-scripts start",
+  "pack": "electron-builder --dir",
+  "dist": "electron-builder",
+  "postinstall": "install-app-deps",
+  "build:css": "postcss src/assets/tailwind.css -o src/assets/main.css",
+  "watch:css": "postcss src/assets/tailwind.css -o src/assets/main.css"
+ },
+ "eslintConfig": {
+  "extends": "react-app"
+ },
+ "build": {
+  "appId": "com.electron.electron-with-create-react-app",
+  "directories": {
+   "buildResources": "public"
   }
+ },
+ "browserslist": {
+  "production": [
+   ">0.2%",
+   "not dead",
+   "not op_mini all"
+  ],
+  "development": [
+   "last 1 chrome version",
+   "last 1 firefox version",
+   "last 1 safari version"
+  ]
+ },
+ "devDependencies": {
+  "autoprefixer": "^9.8.4",
+  "electron": "^9.0.5",
+  "electron-builder": "^22.7.0",
+  "postcss-cli": "^7.1.1",
+  "tailwindcss": "^1.4.6"
+ }
 }
