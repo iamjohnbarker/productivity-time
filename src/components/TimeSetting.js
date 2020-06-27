@@ -34,9 +34,10 @@ export default function TimeSetting() {
        value={whatToWorkOn}
        onChange={(e) => setWhatToWorkOn(e.target.value)}
        name="what"
-       className="w-full bg-gray-800 h-10 rounded-lg px-4 py-2 focus:border-green-400 focus:outline-none"
+       className="w-full bg-gray-800 h-10 rounded-lg px-4 py-2 focus:outline-none focus:shadow-outline"
        type="text"
        placeholder="What are you going to work on?"
+       autoFocus
       />
      </form>
     </div>
@@ -47,7 +48,7 @@ export default function TimeSetting() {
        return (
         <button
          key={interval}
-         className={`w-full px-3 py-2 h-10 rounded-lg bg-gray-800 text-sm focus:outline-none hover:bg-gray-700 transition duration-200 ease-in-out ${
+         className={`w-full px-3 py-2 h-10 rounded-lg bg-gray-800 text-sm focus:outline-none focus:shadow-outline hover:bg-gray-700 transition duration-200 ease-in-out ${
           index === 0
            ? "mr-2"
            : index === timeIntervals.length - 1
@@ -56,6 +57,7 @@ export default function TimeSetting() {
          }`}
          onClick={(e) => handleAddTaskTime(e)}
          data-interval={interval}
+         autoFocus={index === 0 ? true : false}
         >
          {interval}
         </button>

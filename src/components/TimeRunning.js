@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import TimeFormat from "hh-mm-ss";
 
 import { pauseTask, stopTask, changeTime } from "../store/actions/actions";
 
 export default function TimeRunning() {
+ const [showTime, setShowTime] = useState(false);
  const currentTask = useSelector((state) => state.currentTask);
  const currentTimeLeft = useSelector((state) => state.currentTimeLeft);
  const taskRunning = useSelector((state) => state.taskRunning);
@@ -30,12 +32,29 @@ export default function TimeRunning() {
      : "bg-green-900"
    }`}
   >
-   <span className="text-gray-100 text-xl">
-    {currentTimeLeft} - {currentTask || "Working hard or hardly working?"}
-   </span>
-   <div>
+   <div
+    onMouseEnter={() => setShowTime(true)}
+    onMouseLeave={() => setShowTime(false)}
+    className="flex flex-col text-gray-100 text-xl overflow-hidden whitespace-no-wrap"
+   >
+    <span
+     className={`transition duration-500 ease-out transform ${
+      showTime ? "-translate-y-1" : "translate-y-3"
+     }`}
+    >
+     {currentTask || "Working hard or hardly working?"}
+    </span>
+    <span
+     className={`text-sm transition duration-200 ease-in-out ${
+      showTime ? "opacity-1" : "opacity-0"
+     }`}
+    >
+     {TimeFormat.fromS(currentTimeLeft)}
+    </span>
+   </div>
+   <div className="flex">
     <button
-     className={`w-10 h-10 inline-block hover:text-gray-400 transition duration-200 ease-in-out focus:outline-none 
+     className={`w-10 h-10 inline-block hover:text-gray-400 transition duration-200 ease-in-out focus:outline-none focus:shadow-outline 
      ${
       taskPaused
        ? "text-gray-400"
@@ -62,7 +81,7 @@ export default function TimeRunning() {
     </button>
 
     <button
-     className={`ml-4 w-10 h-10 inline-block hover:text-gray-400 transition duration-200 ease-in-out focus:outline-none ${
+     className={`ml-4 w-10 h-10 inline-block hover:text-gray-400 transition duration-200 ease-in-out focus:outline-none focus:shadow-outline ${
       currentTimeLeft < 0
        ? "text-red-800"
        : currentTimeLeft > 60

@@ -14348,8 +14348,8 @@ video {
   opacity: 0.2;
 }
 
-button,
-svg,
+button > *,
+svg > *,
 input {
   -webkit-user-drag: none;
 }

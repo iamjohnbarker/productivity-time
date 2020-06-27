@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require("electron");
+const { app, BrowserWindow, ipcMain, Menu, Tray } = require("electron");
 
 const path = require("path");
 const url = require("url");
@@ -71,4 +71,18 @@ app.on("activate", () => {
 ipcMain.on("asynchronous-message", (event, arg) => {
  console.log(arg); // prints "ping"
  event.reply("asynchronous-reply", "pong");
+});
+
+let tray = null;
+app.whenReady().then(() => {
+ tray = new Tray();
+ tray.setTitle("PT");
+ const contextMenu = Menu.buildFromTemplate([
+  { label: "Item1", type: "radio" },
+  { label: "Item2", type: "radio" },
+  { label: "Item3", type: "radio", checked: true },
+  { label: "Item4", type: "radio" },
+ ]);
+ tray.setToolTip("This is my application.");
+ tray.setContextMenu(contextMenu);
 });

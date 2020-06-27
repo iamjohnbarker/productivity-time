@@ -1,5 +1,5 @@
 const initialState = {
- currentTask: "5 second test",
+ currentTask: "",
  currentTimeLeft: 5,
  taskRunning: true,
  taskPaused: false,
