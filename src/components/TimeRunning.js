@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import TimeFormat from "hh-mm-ss";
 
 import { pauseTask, stopTask, changeTime } from "../store/actions/actions";
+const { ipcRenderer } = window.require("electron");
 
 export default function TimeRunning() {
  const [showTime, setShowTime] = useState(false);
@@ -10,6 +11,10 @@ export default function TimeRunning() {
  const currentTimeLeft = useSelector((state) => state.currentTimeLeft);
  const taskRunning = useSelector((state) => state.taskRunning);
  const taskPaused = useSelector((state) => state.taskPaused);
+
+ ipcRenderer.on("right-clicked-tray-icon", (event, message) => {
+  console.log(message);
+ });
 
  useEffect(() => {
   const interval = setInterval(() => {
@@ -38,23 +43,23 @@ export default function TimeRunning() {
     className="flex flex-col text-gray-100 text-xl overflow-hidden whitespace-no-wrap"
    >
     <span
-     className={`transition duration-500 ease-out transform ${
-      showTime ? "-translate-y-1" : "translate-y-3"
+     className={`transition duration-500 ease-out transform text-xs sm:text-xl ${
+      showTime || taskPaused ? "-translate-y-1" : "translate-y-3"
      }`}
     >
      {currentTask || "Working hard or hardly working?"}
     </span>
     <span
-     className={`text-sm transition duration-200 ease-in-out ${
-      showTime ? "opacity-1" : "opacity-0"
+     className={`text-xs transition duration-200 ease-in-out sm:text-sm font-light ${
+      showTime || taskPaused ? "opacity-1" : "opacity-0"
      }`}
     >
      {TimeFormat.fromS(currentTimeLeft)}
     </span>
    </div>
-   <div className="flex">
+   <div className="flex pl-3">
     <button
-     className={`w-10 h-10 inline-block hover:text-gray-400 transition duration-200 ease-in-out focus:outline-none focus:shadow-outline 
+     className={`w-8 h-8 inline-block hover:text-gray-400 transition duration-200 ease-in-out focus:outline-none focus:shadow-outline 
      ${
       taskPaused
        ? "text-gray-400"
@@ -81,7 +86,7 @@ export default function TimeRunning() {
     </button>
 
     <button
-     className={`ml-4 w-10 h-10 inline-block hover:text-gray-400 transition duration-200 ease-in-out focus:outline-none focus:shadow-outline ${
+     className={`ml-4 w-8 h-8 inline-block hover:text-gray-400 transition duration-200 ease-in-out focus:outline-none focus:shadow-outline ${
       currentTimeLeft < 0
        ? "text-red-800"
        : currentTimeLeft > 60

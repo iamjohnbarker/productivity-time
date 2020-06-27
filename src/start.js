@@ -75,14 +75,22 @@ ipcMain.on("asynchronous-message", (event, arg) => {
 
 let tray = null;
 app.whenReady().then(() => {
- tray = new Tray();
- tray.setTitle("PT");
- const contextMenu = Menu.buildFromTemplate([
-  { label: "Item1", type: "radio" },
-  { label: "Item2", type: "radio" },
-  { label: "Item3", type: "radio", checked: true },
-  { label: "Item4", type: "radio" },
- ]);
- tray.setToolTip("This is my application.");
- tray.setContextMenu(contextMenu);
+ tray = new Tray("./public/tray_icon_light@2x.png");
+ //  tray.setTitle("PT");
+ //  const contextMenu = Menu.buildFromTemplate([
+ //   { label: "Item1", type: "radio" },
+ //   { label: "Item2", type: "radio" },
+ //   { label: "Item3", type: "radio", checked: true },
+ //   { label: "Item4", type: "radio" },
+ //  ]);
+ tray.setToolTip("Right-click to pause.");
+ //  tray.setContextMenu(contextMenu);
+
+ tray.on("click", () => {
+  mainWindow.show();
+ });
+
+ //  tray.on("double-click", () => {
+ //   mainWindow.webContents.send("right-clicked-tray-icon", "whoooooooh!");
+ //  });
 });

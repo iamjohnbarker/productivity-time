@@ -582,15 +582,15 @@ video {
   width: 100%;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 350px) {
   .container {
-    max-width: 640px;
+    max-width: 350px;
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 500px) {
   .container {
-    max-width: 768px;
+    max-width: 500px;
   }
 }
 
@@ -7557,11 +7557,11 @@ video {
 }
 
 .max-w-screen-sm {
-  max-width: 640px;
+  max-width: 350px;
 }
 
 .max-w-screen-md {
-  max-width: 768px;
+  max-width: 500px;
 }
 
 .max-w-screen-lg {
@@ -14354,7 +14354,7 @@ input {
   -webkit-user-drag: none;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 350px) {
   .sm\:space-y-0 > :not(template) ~ :not(template) {
     --space-y-reverse: 0;
     margin-top: calc(0px * calc(1 - var(--space-y-reverse)));
@@ -21306,11 +21306,11 @@ input {
   }
 
   .sm\:max-w-screen-sm {
-    max-width: 640px;
+    max-width: 350px;
   }
 
   .sm\:max-w-screen-md {
-    max-width: 768px;
+    max-width: 500px;
   }
 
   .sm\:max-w-screen-lg {
@@ -28093,7 +28093,7 @@ input {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 500px) {
   .md\:space-y-0 > :not(template) ~ :not(template) {
     --space-y-reverse: 0;
     margin-top: calc(0px * calc(1 - var(--space-y-reverse)));
@@ -35045,11 +35045,11 @@ input {
   }
 
   .md\:max-w-screen-sm {
-    max-width: 640px;
+    max-width: 350px;
   }
 
   .md\:max-w-screen-md {
-    max-width: 768px;
+    max-width: 500px;
   }
 
   .md\:max-w-screen-lg {
@@ -48784,11 +48784,11 @@ input {
   }
 
   .lg\:max-w-screen-sm {
-    max-width: 640px;
+    max-width: 350px;
   }
 
   .lg\:max-w-screen-md {
-    max-width: 768px;
+    max-width: 500px;
   }
 
   .lg\:max-w-screen-lg {
@@ -62523,11 +62523,11 @@ input {
   }
 
   .xl\:max-w-screen-sm {
-    max-width: 640px;
+    max-width: 350px;
   }
 
   .xl\:max-w-screen-md {
-    max-width: 768px;
+    max-width: 500px;
   }
 
   .xl\:max-w-screen-lg {

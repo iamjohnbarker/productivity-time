@@ -37,6 +37,7 @@
  },
  "build": {
   "appId": "com.electron.electron-with-create-react-app",
+  "extends": null,
   "directories": {
    "buildResources": "public"
   }
