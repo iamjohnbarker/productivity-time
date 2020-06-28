@@ -1,7 +1,7 @@
 const initialState = {
  currentTask: "",
- currentTimeLeft: 5,
- taskRunning: true,
+ currentTimeLeft: 0,
+ taskRunning: false,
  taskPaused: false,
 };
 
