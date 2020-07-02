@@ -7,12 +7,12 @@ const os = require("os");
 let mainWindow;
 
 function createWindow() {
- BrowserWindow.addDevToolsExtension(
-  path.join(
-   os.homedir(),
-   "/Library/Application Support/Google/Chrome/Default/Extensions/lmhkpmbekcpmknklioeibfkpmmfibljd/2.17.0_0"
-  )
- );
+ //  BrowserWindow.addDevToolsExtension(
+ //   path.join(
+ //    os.homedir(),
+ //    "/Library/Application Support/Google/Chrome/Default/Extensions/lmhkpmbekcpmknklioeibfkpmmfibljd/2.17.0_0"
+ //   )
+ //  );
 
  mainWindow = new BrowserWindow({
   width: 430,
@@ -26,11 +26,13 @@ function createWindow() {
  mainWindow.loadURL(
   process.env.ELECTRON_START_URL ||
    url.format({
-    pathname: path.join(__dirname, "/../public/index.html"),
+    pathname: path.join(__dirname, "../index.html"),
     protocol: "file:",
     slashes: true,
    })
  );
+
+ //  mainWindow.webContents.openDevTools();
 
  mainWindow.on("closed", () => {
   mainWindow = null;
@@ -51,7 +53,7 @@ const installExtensions = async () => {
 };
 
 app.on("ready", async () => {
- await installExtensions();
+ //  await installExtensions();
 
  return createWindow();
 });
@@ -88,6 +90,18 @@ app.whenReady().then(() => {
 
  tray.on("click", () => {
   mainWindow.show();
+ });
+
+ ipcMain.on("timer-status-change", (event, arg) => {
+  if (arg === "green") {
+   tray.setImage("./public/tray_icon_green@2x.png");
+  } else if (arg === "red") {
+   tray.setImage("./public/tray_icon_red@2x.png");
+  } else if (arg === "paused") {
+   tray.setImage("./public/tray_icon_paused@2x.png");
+  } else {
+   tray.setImage("./public/tray_icon_light@2x.png");
+  }
  });
 
  //  tray.on("double-click", () => {
