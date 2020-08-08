@@ -16,6 +16,12 @@ Clone this repo to your local machine and install the dependencies.
 npm install
 ```
 
+Then run the appliaction.
+
+```
+npm start
+```
+
 ## Features
 
 ### Get straight to work
