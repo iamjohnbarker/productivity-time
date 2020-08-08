@@ -24,7 +24,7 @@ The simple interface allows for zero distractions. Get right to it by typing wha
 
 Choose how long you want to spend on the task.
 
-![time](/screenshots/002-choosetime.png)
+![time](/screenshots/003-choosetime.png)
 
 ### And we're off
 
