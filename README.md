@@ -15,3 +15,5 @@ npm install
 ### Get straight to work
 
 The simple interface allows for zero distractions. Get right to it by typing what you plan to work on.
+
+![start](/screenshots/001-start.png)
