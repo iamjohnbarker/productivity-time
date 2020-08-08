@@ -1,6 +1,10 @@
-# Produtivity Time
+# Productivity Time
 
 Keeping you productive, all the time.
+
+Productivity Time is a simple timer to help you stay focused on your current task.
+
+By default, it stays on top of all windows and is a gentle reminder of whatever task you set out to achieve.
 
 ![start](/screenshots/001-start.png)
 
