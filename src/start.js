@@ -32,6 +32,9 @@ function createWindow() {
    })
  );
 
+ mainWindow.setAlwaysOnTop(true);
+ mainWindow.setVisibleOnAllWorkspaces(true);
+
  //  mainWindow.webContents.openDevTools();
 
  mainWindow.on("closed", () => {

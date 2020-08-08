@@ -39,7 +39,7 @@
   "appId": "com.electron.electron-with-create-react-app",
   "extends": null,
   "directories": {
-   "buildResources": "build"
+   "buildResources": "src"
   },
   "files": [
    "build/**/*",
