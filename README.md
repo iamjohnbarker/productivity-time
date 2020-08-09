@@ -50,7 +50,7 @@ You can always pause and resume the timer and see how long is left by hovering o
 
 ### Colour coded
 
-The display will go gree during the last minute and red when you are over-time.
+The display will go green during the last minute and red when you are over-time.
 
 ![green](/screenshots/006-green.png)
 
