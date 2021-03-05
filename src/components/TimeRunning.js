@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import TimeFormat from "hh-mm-ss";
 
 import { pauseTask, stopTask, changeTime } from "../store/actions/actions";
-const { ipcRenderer } = window.require("electron");
+// const { ipcRenderer } = window.require("electron");
 
 export default function TimeRunning() {
  const [showTime, setShowTime] = useState(false);
@@ -12,9 +12,9 @@ export default function TimeRunning() {
  const taskRunning = useSelector((state) => state.taskRunning);
  const taskPaused = useSelector((state) => state.taskPaused);
 
- ipcRenderer.on("right-clicked-tray-icon", (event, message) => {
-  console.log(message);
- });
+ //  ipcRenderer.on("right-clicked-tray-icon", (event, message) => {
+ //   console.log(message);
+ //  });
 
  useEffect(() => {
   const interval = setInterval(() => {

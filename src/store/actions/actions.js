@@ -1,6 +1,6 @@
 import store from "../main-store";
 import { useSelector } from "react-redux";
-const { ipcRenderer } = window.require("electron");
+// import { ipcRenderer }  from "electron";
 
 const ADD_TASK_TEXT = "ADD_TASK_TEXT";
 const ADD_TASK_TIME = "ADD_TASK_TIME";
@@ -28,12 +28,12 @@ export function pauseTask() {
  const action = {
   type: PAUSE_TASK,
  };
- ipcRenderer.send("timer-status-change", "paused");
+ //  ipcRenderer.send("timer-status-change", "paused");
 
  const state = store.getState();
 
  if (state.taskRunning === false) {
-  ipcRenderer.send("timer-status-change", "light");
+  //   ipcRenderer.send("timer-status-change", "light");
  }
 
  return store.dispatch(action);
@@ -43,7 +43,7 @@ export function stopTask() {
  const action = {
   type: STOP_TASK,
  };
- ipcRenderer.send("timer-status-change", "light");
+ //  ipcRenderer.send("timer-status-change", "light");
 
  return store.dispatch(action);
 }
@@ -56,11 +56,11 @@ export function changeTime(amount) {
 
  const state = store.getState();
 
- if (state.currentTimeLeft < 61 && state.currentTimeLeft > 0) {
-  ipcRenderer.send("timer-status-change", "green");
- } else if (state.currentTimeLeft <= 0) {
-  ipcRenderer.send("timer-status-change", "red");
- }
+ //  if (state.currentTimeLeft < 61 && state.currentTimeLeft > 0) {
+ //   ipcRenderer.send("timer-status-change", "green");
+ //  } else if (state.currentTimeLeft <= 0) {
+ //   ipcRenderer.send("timer-status-change", "red");
+ //  }
 
  return store.dispatch(action);
 }
